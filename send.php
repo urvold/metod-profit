@@ -2,7 +2,7 @@
 // Куда отправлять заявки
 $to = "profit-360@mail.ru";
 
-// Забираем поля из формы (с базовой защитой от пустых значений)
+// Забираем поля из формы
 $name      = isset($_POST['name']) ? trim($_POST['name']) : '';
 $contact   = isset($_POST['contact']) ? trim($_POST['contact']) : '';
 $goal      = isset($_POST['goal']) ? trim($_POST['goal']) : '';
@@ -35,7 +35,7 @@ $body .= "Тренировок в неделю: {$days}\n";
 $body .= "Опыт тренировок: {$experience}\n\n";
 $body .= "Комментарий клиента:\n{$comment}\n";
 
-// Заголовки письма (от кого)
+// Заголовки письма
 $headers = "From: ProFit Site <no-reply@profit-360.ru>\r\n".
            "Reply-To: no-reply@profit-360.ru\r\n".
            "Content-Type: text/plain; charset=utf-8\r\n";
@@ -49,12 +49,9 @@ $mailSent = mail($to, $subject, $body, $headers);
   <meta charset=\"UTF-8\">
   <title>Заявка отправлена</title>
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+  <link rel=\"stylesheet\" href=\"styles.css\">
   <style>
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #050608;
-      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -63,22 +60,21 @@ $mailSent = mail($to, $subject, $body, $headers);
     .box {
       max-width: 420px;
       padding: 24px 20px;
-      background: #0c0f14;
+      background: #0c1018;
       border-radius: 18px;
       border: 1px solid #1b2230;
       text-align: center;
-    }
-    h1 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    p {
       font-size: 14px;
-      color: #a7afc0;
-      margin-bottom: 10px;
     }
-    a {
-      color: #20c2ff;
+    .box h1 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .box p {
+      margin-bottom: 8px;
+    }
+    .box a {
+      color: #22e0ff;
       text-decoration: none;
       font-size: 14px;
     }
